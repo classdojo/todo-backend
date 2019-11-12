@@ -4,6 +4,11 @@ const _ = require("lodash");
 const app = express();
 
 const bodyParser = require("body-parser")
+app.use((req, res, next) => {
+    console.log(`--> ${req.method} ${req.url}`);
+    return next();
+});
+
 app.use(bodyParser.json());
 
 const todos = [
